@@ -1,0 +1,49 @@
+<script src="https://blog-static.cnblogs.com/files/haha1212/silence.min.js"></script>
+<script>
+    // 初始化博客样式
+    $.silence({
+        base: {
+            avatar: 'https://pic.cnblogs.com/avatar/1058332/20180131123603.png',
+            favicon: 'https://files-cdn.cnblogs.com/files/haha1212/favicon.ico',
+        },
+        catalog: {
+            enable: true,
+            move: true,
+            index: true,
+            level1: 'h1',
+            level2: 'h2',
+            level3: 'h3',
+        },
+        signature: {
+            enable: true,
+            home: 'https://www.cnblogs.com/haha1212',
+            license: 'CC BY 4.0',
+            link: 'https://creativecommons.org/licenses/by/4.0'
+        },
+        sponsor: {
+            enable: false,
+            paypal: null,
+            wechat: null,
+            alipay: null
+        },
+        github: {
+            enable: true,
+            link: 'https://github.com/singletouch'
+        }
+    });
+    // 该主题不支持富文本样式,所以重写富文本编辑的代码复制按钮
+    $(".cnblogs_code").has(".cnblogs_code_toolbar").append("<div class='cnblogs_code_mycopy' onclick='copyCnblogsCode(this)'>copy</div>")
+    //顶部导航状态监听
+    var time;
+    var normar_title=document.title;
+    document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState == 'hidden') {
+            clearTimeout(time);
+            document.title = '(oﾟvﾟ)ノ Hi';
+        } else {
+            document.title = '(*´∇｀*) 欢迎回来！';
+            time=setTimeout(function(){ document.title = normar_title; }, 3000);
+
+        }
+    });
+</script>
